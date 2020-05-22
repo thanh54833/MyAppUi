@@ -1,7 +1,6 @@
 package com.example.myapp.main
 
 import com.example.myapp.abs.AbsStateActivity
-import com.example.myapp.aimation.CanvasAct
 import com.example.myapp.player.PlayerAct
 
 class MainAct : AbsStateActivity() {
@@ -12,8 +11,12 @@ class MainAct : AbsStateActivity() {
 
         //startActivity(PlayerAct.getIntent(this))
 
-        startActivity(CanvasAct.getIntent(this))
+        startActivity(PlayerAct.getIntent(this))
 
+    }
+
+    override fun initializedView() {
+        //TODO("Not yet implemented")
     }
 
     override fun initObservable() {

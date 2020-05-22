@@ -15,6 +15,7 @@ import android.view.Menu
 import android.view.MotionEvent
 import android.view.View
 import android.view.animation.DecelerateInterpolator
+import android.widget.AdapterView
 import androidx.annotation.FontRes
 import androidx.annotation.MenuRes
 import androidx.core.content.res.ResourcesCompat
@@ -162,6 +163,10 @@ class SmoothBottomBar : View {
         }
     }
 
+    fun setBackgroundColorBar(color: Int) {
+        paintBackground.color = color
+    }
+
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
 
@@ -187,9 +192,10 @@ class SmoothBottomBar : View {
             )
 
             item.title = item.title
-
             item.rect = RectF(lastX, 0f, itemWidth + lastX, height.toFloat())
             lastX += itemWidth
+
+
         }
 
         // Set initial active item
@@ -393,7 +399,7 @@ class SmoothBottomBar : View {
         return resources.displayMetrics.densityDpi.toFloat() / 160.toFloat() * dp
     }
 
-    fun setOnItemSelectedListener(listener: OnItemSelectedListener) {
+    fun setOnItemSelectedListener(listener:OnItemSelectedListener) {
         this.onItemSelectedListener = listener
     }
 

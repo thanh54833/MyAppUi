@@ -20,6 +20,10 @@ class CanvasAct : AbsStateActivity() {
 
     }
 
+    override fun initializedView() {
+        //TODO("Not yet implemented")
+    }
+
     private fun initView() {
 
 
