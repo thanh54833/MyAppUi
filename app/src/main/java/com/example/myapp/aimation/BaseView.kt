@@ -40,7 +40,6 @@ class BaseView @JvmOverloads constructor(
         matrix.postTranslate(200f, 100f)//(100 * elapsedTime / 1000).toFloat(), 0F)
 
         canvas?.concat(matrix)
-
         canvas?.drawRect(0f, 100f, 200f, 200f, paint)
 
 
