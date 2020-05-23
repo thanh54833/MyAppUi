@@ -12,7 +12,6 @@ import com.example.myapp.databinding.CanvasActBinding
 class CanvasAct : AbsStateActivity() {
     lateinit var binding: CanvasActBinding
 
-
     override fun initializedLayout() {
         //TODO("Not yet implemented")
         binding = DataBindingUtil.setContentView(this@CanvasAct, R.layout.canvas_act)

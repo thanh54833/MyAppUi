@@ -4,9 +4,7 @@ import com.example.myapp.abs.AbsStateActivity
 import com.example.myapp.aimation.CanvasAct
 import com.example.myapp.player.PlayerAct
 
-class MainAct : AbsStateActivity() {
-
-
+class MainAct : AbsStateActivity() {+
     override fun initializedLayout() {
         //TODO("Not yet implemented")
 
@@ -18,5 +16,7 @@ class MainAct : AbsStateActivity() {
 
     override fun initObservable() {
         //TODO("Not yet implemented")
+
+
     }
 }
