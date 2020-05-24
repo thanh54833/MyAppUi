@@ -3,24 +3,26 @@ package com.example.myapp.player
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
-import android.os.Build
-import android.view.WindowManager
-import android.widget.Toast
+import android.view.LayoutInflater
+import android.view.View
 import androidx.databinding.DataBindingUtil
-import com.example.commons.toast.ShowToast
 import com.example.myapp.R
-import com.example.myapp.Uitls.Log
 import com.example.myapp.abs.AbsStateActivity
 import com.example.myapp.contact.type.PageType
-import com.example.myapp.contact.type.ThemesType
 import com.example.myapp.databinding.PlayerActBinding
+import com.google.android.material.snackbar.Snackbar
 import me.ibrahimsn.lib.OnItemSelectedListener
-import kotlin.properties.ReadWriteProperty
-import kotlin.reflect.KProperty
 
 class PlayerAct : AbsStateActivity() {
     lateinit var binding: PlayerActBinding
-    private var toast: String by ShowToast()
+
+    override fun initImportant(
+        setMultipleStateView: (view: View) -> Unit,
+        setContentView: (view: View) -> Unit,
+        setInVisible: (views: MutableList<View>) -> Unit
+    ) {
+        setContentView.invoke(binding.contentLayout)
+    }
 
     override fun initializedLayout() {
         binding = DataBindingUtil.setContentView(this@PlayerAct, R.layout.player_act)
@@ -29,72 +31,50 @@ class PlayerAct : AbsStateActivity() {
         //Example().value = " Thanh thanh"
         //Toast.makeText(this@PlayerAct, Example().value, Toast.LENGTH_SHORT).show()
         //ToastV2("message thanh thanh ...").message
-
-        "start PlayerAct".Log()
-
-        binding.btn.setOnClickListener {
-
-            applyThemes(ThemesType.DARK)
-
-            /*theme.applyStyle(R.style.AppTheme_Dark, true)
-
-            recreate()
-            recreateActivity()
-            binding.invalidateAll()
-            recreateActivity()
-
-            toast = "OnClick Btn ..."
-            toast = "thanh"*/
-
-        }
-
     }
 
     override fun initializedView() {
         initView()
         initListener()
         initNavigates()
+
+
+        snackbar("message", true)
+    }
+
+
+    private fun initView() {
+
+
     }
 
     private fun initListener() {
-        var isSwitch = false
+        binding.btn.setOnClickListener {
 
-        /*setTheme(R.style.AppTheme_Dark)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-            //TODO : set topbar color...
-            //getWindow().setStatusBarColor(getResources().getColor(R.color.primaryColorDark_red))
         }
-        recreateActivity()*/
+
+        binding.bottomBar.setOnItemSelectedListener(object : OnItemSelectedListener {
+            override fun onItemSelect(pos: Int): Boolean {
+                snackbar("On Click Btn ...")
+                when (pos) {
+                    PageType.MUSIC -> {
+                        binding.bottomBar.setBackgroundColorBar(Color.RED)
+                        setSelectedPage(PageType.MUSIC)
+                    }
+                    PageType.LIST_LIKE -> {
+                        binding.bottomBar.setBackgroundColorBar(Color.GRAY)
+                        setSelectedPage(PageType.LIST_LIKE)
+                    }
+                    PageType.SETTING -> {
+                        binding.bottomBar.setBackgroundColorBar(Color.BLUE)
+                        setSelectedPage(PageType.SETTING)
+                    }
+                }
+                return false
+            }
+        })
 
 
-        //binding.btn.setOnClickListener {
-
-        //"thanh on click".Log()
-
-        //delegateToast(" Message cua thanh !..")
-
-        //val number = Number(100)
-        //Toast.makeText(this@PlayerAct, "messange :=" + number, Toast.LENGTH_SHORT).show()
-
-
-        //Todo : change style ...
-        /*theme.applyStyle(R.style.AppTheme_Light, true)
-        recreateActivity()
-        binding.invalidateAll()
-
-        this.recreate()
-        this.recreateActivity()*/
-
-        /*if (isSwitch) {
-            applyThemes(ThemesType.LIGHT)
-        } else {
-            applyThemes(ThemesType.DARK)
-        }*/
-
-
-        //isSwitch = !isSwitch
-        //}
     }
 
     private fun initNavigates() {
@@ -105,28 +85,7 @@ class PlayerAct : AbsStateActivity() {
 
     }
 
-    private fun initView() {
-        binding.bottomBar.setBackgroundColorBar(Color.RED)
-        binding.bottomBar.setOnItemSelectedListener(object : OnItemSelectedListener {
-            override fun onItemSelect(pos: Int): Boolean {
-                "onClick".Log()
 
-                when (pos) {
-                    PageType.MUSIC -> {
-                        binding.bottomBar.setBackgroundColorBar(Color.RED)
-                    }
-                    PageType.LIST_LIKE -> {
-                        binding.bottomBar.setBackgroundColorBar(Color.GRAY)
-                    }
-                    PageType.SETTING -> {
-                        binding.bottomBar.setBackgroundColorBar(Color.BLUE)
-                    }
-                }
-
-                return false
-            }
-        })
-    }
 
     companion object {
         @JvmStatic

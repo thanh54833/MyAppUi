@@ -31,18 +31,13 @@ class BaseView @JvmOverloads constructor(
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-
         val elapsedTime = System.currentTimeMillis() - timeStart
-
-        Log.i("===", "=== elapsedTime :== $elapsedTime===$animationDuration")
 
         matrix.postRotate(130f)//(30 * elapsedTime / 1000).toFloat())
         matrix.postTranslate(200f, 100f)//(100 * elapsedTime / 1000).toFloat(), 0F)
 
         canvas?.concat(matrix)
         canvas?.drawRect(0f, 100f, 200f, 200f, paint)
-
-
         /*if (elapsedTime < animationDuration) {
             this.postInvalidateDelayed((1000 / framesPerSecond).toLong())
         }*/

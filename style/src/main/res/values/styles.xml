@@ -21,4 +21,27 @@
 
     </style>
 
+
+    <style name="AppTheme.Pink" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/primaryColorDark_blue</item>
+        <item name="background_color">@color/colorPrimary</item>
+        <item name="android:statusBarColor">@color/colorPrimary</item>
+
+    </style>
+
+
+    <!--  Add style ... -->
+
+    <style name="Music.TextView.Normal" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/text_default</item>
+        <item name="android:textColorHint">?android:textColorHint</item>
+        <item name="android:textColorHighlight">?android:textColorHighlight</item>
+        <item name="android:textColorLink">?android:textColorLink</item>
+        <item name="android:textSize">@dimen/activity_text_default</item>
+        <item name="android:fontFamily">@font/amaranth</item>
+    </style>
+
 </resources>

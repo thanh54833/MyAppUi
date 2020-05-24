@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Paint
 import android.graphics.Typeface
+import android.view.View
 import androidx.databinding.DataBindingUtil
 import com.example.myapp.R
 import com.example.myapp.abs.AbsStateActivity
@@ -11,6 +12,13 @@ import com.example.myapp.databinding.CanvasActBinding
 
 class CanvasAct : AbsStateActivity() {
     lateinit var binding: CanvasActBinding
+    override fun initImportant(
+        setMultipleStateView: (view: View) -> Unit,
+        setContentView: (view: View) -> Unit,
+        setInVisible: (views: MutableList<View>) -> Unit
+    ) {
+        //TODO("Not yet implemented")
+    }
 
     override fun initializedLayout() {
         //TODO("Not yet implemented")

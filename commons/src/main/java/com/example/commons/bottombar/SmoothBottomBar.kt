@@ -185,17 +185,9 @@ class SmoothBottomBar : View {
                 item.title = item.title.dropLast(1)
                 item.title += context.getString(R.string.ellipsis)
             }*/
-
-            Log.i(
-                "===",
-                "=== lastX :===" + lastX + "=== itemWidth :== " + itemWidth + "===height :==" + height.toFloat()
-            )
-
             item.title = item.title
             item.rect = RectF(lastX, 0f, itemWidth + lastX, height.toFloat())
             lastX += itemWidth
-
-
         }
 
         // Set initial active item

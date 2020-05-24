@@ -17,5 +17,10 @@
     <color name="colorTextSecondary">#A3FFFFFF</color>
     <color name="colorBadge">#f4d415</color>
 
-    
+
+    <color name="text_default">#292828</color>
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_light">#5c5c5c</color>
+    <color name="text_default_snack_bar_title">#FFFFFF</color>
+
 </resources>
