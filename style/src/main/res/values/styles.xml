@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Base application theme. -->
+    <style name="AppTheme.Light" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primaryColor_blue</item>
+        <item name="colorPrimaryDark">@color/primaryColorDark_blue</item>
+        <item name="colorAccent">@color/primaryAccent_blue</item>
+        <item name="background_color">@color/primaryColorDark_blue</item>
+        <item name="android:statusBarColor">@color/primaryColorDark_blue</item>
+    </style>
 
+    <style name="AppTheme.Dark" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primaryColor_red</item>
+        <item name="colorPrimaryDark">@color/primaryColorDark_red</item>
+        <item name="colorAccent">@color/primaryAccent_red</item>
+        <item name="background_color">@color/primaryColorDark_red</item>
+        <item name="android:statusBarColor">@color/primaryColorDark_red</item>
 
-
+    </style>
 
 </resources>
