@@ -15,7 +15,6 @@ import android.view.Menu
 import android.view.MotionEvent
 import android.view.View
 import android.view.animation.DecelerateInterpolator
-import android.widget.AdapterView
 import androidx.annotation.FontRes
 import androidx.annotation.MenuRes
 import androidx.core.content.res.ResourcesCompat
@@ -79,7 +78,7 @@ class SmoothBottomBar : View {
 
     var onItemSelected: (Int) -> Unit = {}
     var onItemReselected: (Int) -> Unit = {}
-
+    val customTypeface = ResourcesCompat.getFont(context, R.font.amaranth)
     private val rect = RectF()
 
     private val paintBackground = Paint().apply {
@@ -92,15 +91,18 @@ class SmoothBottomBar : View {
         isAntiAlias = true
         style = Paint.Style.FILL
         color = barIndicatorColor
+        typeface = customTypeface
     }
 
     private val paintText = Paint().apply {
+
         isAntiAlias = true
         style = Paint.Style.FILL
         color = itemTextColor
         textSize = itemTextSize
         textAlign = Paint.Align.CENTER
         isFakeBoldText = true
+        typeface = customTypeface
     }
 
     constructor(context: Context) : this(context, null)
@@ -254,7 +256,8 @@ class SmoothBottomBar : View {
             canvas.drawText(
                 item.title,
                 item.rect.centerX() + itemIconSize / 2 + itemIconMargin,
-                item.rect.centerY() - textHeight, paintText
+                item.rect.centerY() - textHeight,
+                paintText
             )
         }
     }
@@ -391,7 +394,7 @@ class SmoothBottomBar : View {
         return resources.displayMetrics.densityDpi.toFloat() / 160.toFloat() * dp
     }
 
-    fun setOnItemSelectedListener(listener:OnItemSelectedListener) {
+    fun setOnItemSelectedListener(listener: OnItemSelectedListener) {
         this.onItemSelectedListener = listener
     }
 

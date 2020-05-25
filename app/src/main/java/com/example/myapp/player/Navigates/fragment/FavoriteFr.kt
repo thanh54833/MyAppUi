@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
 import com.example.myapp.R
 import com.example.myapp.abs.AbsFragment
 import com.example.myapp.databinding.MainFavriterFrBinding
@@ -28,7 +27,7 @@ class FavoriteFr : AbsFragment() {
 
     override fun initObservable() {
         //TODO("Not yet implemented")
-    }
 
+    }
 
 }

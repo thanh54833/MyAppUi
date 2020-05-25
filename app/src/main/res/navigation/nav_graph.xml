@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/musicFr"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/musicFr"
+        android:name="com.example.myapp.player.Navigates.fragment.MusicFr"
+        android:label="MusicFr">
+        <action
+            android:id="@+id/action_musicFr_to_favoriteFr"
+            app:destination="@id/favoriteFr" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteFr"
+        android:name="com.example.myapp.player.Navigates.fragment.FavoriteFr"
+        android:label="FavoriteFr">
+        <action
+            android:id="@+id/action_favoriteFr_to_settingFr"
+            app:destination="@id/settingFr" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingFr"
+        android:name="com.example.myapp.player.Navigates.fragment.SettingFr"
+        android:label="SettingFr" />
+
+</navigation>

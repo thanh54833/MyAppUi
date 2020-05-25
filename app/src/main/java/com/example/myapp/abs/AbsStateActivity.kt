@@ -1,8 +1,10 @@
 package com.example.myapp.abs
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.example.commons.sharepreference.intPreference
 import com.example.commons.snackbar.SnackBarView
 import com.example.myapp.R
@@ -36,12 +38,20 @@ abstract class AbsStateActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("RestrictedApi")
     fun snackbar(message: String, isCustom: Boolean = true) {
         contentUi?.let { _view ->
             val mSnackbar = Snackbar.make(_view, "", Snackbar.LENGTH_LONG)
             (mSnackbar.view as? Snackbar.SnackbarLayout)?.apply {
+
                 findViewById<View>(R.id.snackbar_text).visibility = View.INVISIBLE
                 findViewById<View>(R.id.snackbar_action).visibility = View.INVISIBLE
+
+                background = ContextCompat.getDrawable(
+                    context,
+                    R.drawable.bg_snackbar_default
+                )  //android:background="@drawable/bg_snackbar_default"
+
                 val snackView: View = SnackBarView
                     .onCreate(_view.context)
                     .setMessage(message).build()

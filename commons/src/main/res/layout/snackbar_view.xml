@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_snackbar_default"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -15,10 +15,12 @@
         android:fontFamily="@font/amaranth"
         android:gravity="center|start"
         android:inputType="textMultiLine"
-        android:padding="8dp"
-        android:text="Mọi người đều có thể biên tập bài"
+        android:layout_gravity="start|center"
         android:textColor="@color/text_white"
         android:textSize="15sp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        tools:text="Mọi người đều có thể biên tập bài"
         android:textStyle="normal" />
 
 </LinearLayout>
