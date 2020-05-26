@@ -21,7 +21,6 @@
                 app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
                 <LinearLayout
-                    android:id="@+id/content_layout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
@@ -35,13 +34,10 @@
                         android:text="Click"
                         android:visibility="gone" />
 
-                    <fragment
-                        android:id="@+id/navigate"
-                        android:name="androidx.navigation.fragment.NavHostFragment"
+                    <FrameLayout
+                        android:id="@+id/content_layout"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        app:defaultNavHost="true"
-                        app:navGraph="@navigation/nav_graph" />
+                        android:layout_height="match_parent" />
 
                 </LinearLayout>
             </androidx.core.widget.NestedScrollView>

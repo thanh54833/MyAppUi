@@ -370,9 +370,6 @@ class SmoothBottomBar : View {
 
     private fun animateIndicator(pos: Int) {
         val animator = ValueAnimator.ofFloat(indicatorLocation, items[pos].rect.left)
-
-        Log.i("===", "===" + items[pos].rect.left)
-
         animator.duration = itemAnimDuration
         animator.interpolator = DecelerateInterpolator()
         animator.addUpdateListener { animation ->

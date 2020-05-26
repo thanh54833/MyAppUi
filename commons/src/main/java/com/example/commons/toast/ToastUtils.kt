@@ -13,8 +13,6 @@ class ToastProperty(var message: String?) : ReadWriteProperty<Context, String> {
         return message ?: ""
     }
     override fun setValue(thisRef: Context, property: KProperty<*>, value: String) {
-        Log.i("===", "=== message :== " + message)
-
         if (!TextUtils.isEmpty(message)) {
             Toast.makeText(thisRef, message, Toast.LENGTH_SHORT).show()
         }

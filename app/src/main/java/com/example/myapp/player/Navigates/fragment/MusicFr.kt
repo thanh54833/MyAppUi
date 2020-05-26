@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.Navigation
 import com.example.myapp.R
 import com.example.myapp.abs.AbsFragment
 import com.example.myapp.databinding.MainMusicFrBinding
@@ -25,8 +24,9 @@ class MusicFr : AbsFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val navigateController = Navigation.findNavController(binding.root)
-        navigateController.navigate(R.id.action_musicFr_to_favoriteFr)
+
+        //val navigateController = Navigation.findNavController(binding.root)
+        //navigateController.navigate(R.id.action_musicFr_to_favoriteFr)
 
     }
 
@@ -36,6 +36,12 @@ class MusicFr : AbsFragment() {
 
     override fun initObservable() {
 
+    }
 
+    companion object {
+        fun translation() {
+
+
+        }
     }
 }
