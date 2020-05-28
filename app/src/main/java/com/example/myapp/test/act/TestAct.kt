@@ -4,9 +4,11 @@ import android.content.Context
 import android.content.Intent
 import android.view.View
 import androidx.databinding.DataBindingUtil
+import androidx.room.Room
 import com.example.myapp.R
 import com.example.myapp.abs.AbsStateActivity
 import com.example.myapp.databinding.TestActBinding
+import com.example.myapp.test.room.AppDataBase
 
 class TestAct : AbsStateActivity() {
     lateinit var binding: TestActBinding
@@ -31,7 +33,16 @@ class TestAct : AbsStateActivity() {
     private fun initView() {
 
         //Todo : tai lieu room ...
-        //https://medium.com/mindorks/using-room-database-android-jetpack-675a89a0e942
+        //https://medium.com/mindorks/using-room-database-android-jetpack-675a89a0e942s
+        toast("show Toast")
+
+
+        val data =
+            Room.databaseBuilder(applicationContext, AppDataBase::class.java, "database_name")
+                .build()
+
+        data.userDao()
+        data.userDao().getAll()
 
     }
 

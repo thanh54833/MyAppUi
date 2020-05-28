@@ -97,7 +97,7 @@ abstract class AbsStateActivity : AppCompatActivity() {
                 }
             }
             AppMode.REALEASE -> {
-
+                
             }
         }
     }
