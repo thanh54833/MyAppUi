@@ -9,8 +9,8 @@ import androidx.fragment.app.FragmentActivity
 class CommonsUtils {
 }
 
-fun String.Log() {
-    android.util.Log.i("===", "Log :=$this")
+fun String.Log(action: String = "Log :=") {
+    android.util.Log.i("===", "$action $this")
 }
 
 fun String.toast(context: Context) {

@@ -6,6 +6,8 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import androidx.room.*
+import androidx.sqlite.db.SupportSQLiteDatabase
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -56,17 +58,41 @@ interface WordDao {
 abstract class WordRoomDatabase : RoomDatabase() {
     abstract fun wordDao(): WordDao
 
+    class WordDatabaseCallBack(private var scope: CoroutineScope) : RoomDatabase.Callback() {
+        override fun onOpen(db: SupportSQLiteDatabase) {
+            super.onOpen(db)
+
+            scope.launch {
+                INSTANCE?.let { _dataBase ->
+                    val wordDao = _dataBase.wordDao()
+                    wordDao.deleteAll()
+
+                    var word = Word("hello")
+                    wordDao.insert(word)
+                    word = Word("world")
+                    wordDao.insert(word)
+                    word = Word("todo")
+                    wordDao.insert(word)
+
+                }
+            }
+        }
+    }
+
+
     companion object {
         @Volatile
         private var INSTANCE: WordRoomDatabase? = null
-        fun getDataBase(context: Context): WordRoomDatabase {
-            val instance = Room.databaseBuilder(
+        fun getDataBase(context: Context, scope: CoroutineScope): WordRoomDatabase {
+            return INSTANCE ?: synchronized(this) {
+                val instance = Room.databaseBuilder(
                 context.applicationContext,
                 WordRoomDatabase::class.java,
                 "word_database"
-            ).build()
-            INSTANCE = instance
-            return instance
+                ) .fallbackToDestructiveMigration().addCallback(WordDatabaseCallBack(scope)).build()
+                INSTANCE = instance
+                instance
+            }
         }
     }
 }
@@ -84,7 +110,7 @@ class WordModel(application: Application) : AndroidViewModel(application) {
     var allWork: LiveData<List<Word>>
 
     init {
-        val wordDao = WordRoomDatabase.getDataBase(application).wordDao()
+        val wordDao = WordRoomDatabase.getDataBase(application,viewModelScope).wordDao()
         resiponstory = WordRepository(wordDao)
         allWork = resiponstory.allWords
     }
@@ -93,4 +119,9 @@ class WordModel(application: Application) : AndroidViewModel(application) {
         resiponstory.insert(word)
     }
 }
+
 //https://codelabs.developers.google.com/codelabs/android-room-with-a-view-kotlin/#9
+
+
+
+

@@ -4,45 +4,61 @@ import android.content.Context
 import android.content.Intent
 import android.view.View
 import androidx.databinding.DataBindingUtil
-import androidx.room.Room
+import androidx.lifecycle.ViewModelProviders
 import com.example.myapp.R
 import com.example.myapp.abs.AbsStateActivity
 import com.example.myapp.databinding.TestActBinding
-import com.example.myapp.test.room.AppDataBase
+import com.example.myapp.test.room.WordModel
+
 
 class TestAct : AbsStateActivity() {
-    lateinit var binding: TestActBinding
+    private lateinit var binding: TestActBinding
+    //private lateinit var  viewModel: WordModel //by viewModels()
+
     override fun initImportant(
         setMultipleStateView: (view: View) -> Unit,
         setContentView: (view: View) -> Unit,
         setInVisible: (views: MutableList<View>) -> Unit
     ) {
-        //TODO("Not yet implemented")
+
     }
 
     override fun initializedLayout() {
-        //TODO("Not yet implemented")
+        //val model = ViewModelProvider(this).get(MyViewModel::class.java)
+        val model = ViewModelProviders.of(this).get(WordModel(application = application)::class.java)
+
+        //viewModel = ViewModelProvider(this).get(WordModel::class.java)
         binding = DataBindingUtil.setContentView(this@TestAct, R.layout.test_act)
+
     }
 
     override fun initializedView() {
-        //TODO("Not yet implemented")
+
         initView()
     }
 
     private fun initView() {
 
-        //Todo : tai lieu room ...
+
         //https://medium.com/mindorks/using-room-database-android-jetpack-675a89a0e942s
         toast("show Toast")
 
 
-        val data =
+        /*val data =
             Room.databaseBuilder(applicationContext, AppDataBase::class.java, "database_name")
                 .build()
 
         data.userDao()
-        data.userDao().getAll()
+        data.userDao().getAll()*/
+
+
+        /*viewModel.allWork.observe(this, Observer { _lists ->
+
+
+            " ${Gson().toJson(_lists)} ".Log()
+
+        })*/
+
 
     }
 
