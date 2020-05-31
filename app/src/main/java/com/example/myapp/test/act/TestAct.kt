@@ -3,12 +3,8 @@ package com.example.myapp.test.act
 import android.content.Context
 import android.content.Intent
 import android.view.View
-import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProviders
-import com.example.myapp.R
 import com.example.myapp.abs.AbsStateActivity
 import com.example.myapp.databinding.TestActBinding
-import com.example.myapp.test.room.WordModel
 
 
 class TestAct : AbsStateActivity() {
@@ -25,10 +21,10 @@ class TestAct : AbsStateActivity() {
 
     override fun initializedLayout() {
         //val model = ViewModelProvider(this).get(MyViewModel::class.java)
-        val model = ViewModelProviders.of(this).get(WordModel(application = application)::class.java)
+      /*  val model = ViewModelProviders.of(this).get(WordModel(application = application)::class.java)
 
         //viewModel = ViewModelProvider(this).get(WordModel::class.java)
-        binding = DataBindingUtil.setContentView(this@TestAct, R.layout.test_act)
+        binding = DataBindingUtil.setContentView(this@TestAct, R.layout.test_act)*/
 
     }
 
@@ -41,7 +37,7 @@ class TestAct : AbsStateActivity() {
 
 
         //https://medium.com/mindorks/using-room-database-android-jetpack-675a89a0e942s
-        toast("show Toast")
+        //toast("show Toast")
 
 
         /*val data =

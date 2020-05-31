@@ -1,17 +1,6 @@
 package com.example.myapp.test.room
 
-import android.app.Application
-import android.content.Context
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.viewModelScope
-import androidx.room.*
-import androidx.sqlite.db.SupportSQLiteDatabase
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-
-
+/*
 @Entity
 class User(
     @PrimaryKey var uId: Int,
@@ -122,6 +111,5 @@ class WordModel(application: Application) : AndroidViewModel(application) {
 
 //https://codelabs.developers.google.com/codelabs/android-room-with-a-view-kotlin/#9
 
-
-
+*/
 

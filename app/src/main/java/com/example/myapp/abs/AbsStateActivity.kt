@@ -4,19 +4,21 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.View
 import androidx.annotation.IdRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
 import com.example.commons.sharepreference.intPreference
 import com.example.commons.snackbar.SnackBarView
 import com.example.myapp.R
-import com.example.myapp.Uitls.Log
 import com.example.myapp.config.AppConfig
 import com.example.myapp.contact.config.AppMode
 import com.example.myapp.contact.type.PageType
 import com.example.myapp.contact.type.ThemesType
 import com.example.myapp.test.act.TestAct
+import com.example.myapp.test.room.DatabaseHelperImpl
 import com.google.android.material.snackbar.Snackbar
 import kotlin.properties.Delegates
 
@@ -90,10 +92,9 @@ abstract class AbsStateActivity : AppCompatActivity() {
     private fun initTestView() {
         when (AppConfig.APP_MODE) {
             AppMode.TEST -> {
-                "check : ${(this !is TestAct)}".Log()
-
-                if (this !is TestAct) {
-                    startActivity(TestAct.getIntent(this))
+                if (!TextUtils.equals(AppConfig.ACTIVITY_TEST.name, this.javaClass.name)) {
+                    val intent = Intent(this, AppConfig.ACTIVITY_TEST)
+                    startActivity(intent)
                 }
             }
             AppMode.REALEASE -> {
@@ -189,6 +190,7 @@ abstract class AbsStateActivity : AppCompatActivity() {
         startActivity(intent)
         overridePendingTransition(0, 0)
     }
+
 
     companion object {
         const val THEMES_TYPE_MUSIC = "THEMES_TYPE_MUSIC"

@@ -13,6 +13,10 @@ fun String.Log(action: String = "Log :=") {
     android.util.Log.i("===", "$action $this")
 }
 
+fun String.Log(action: Context) {
+    android.util.Log.i("===", "${action.javaClass.name} : $action $this")
+}
+
 fun String.toast(context: Context) {
     Toast.makeText(context, this, Toast.LENGTH_SHORT).show()
 }

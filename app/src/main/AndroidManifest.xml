@@ -21,8 +21,7 @@
         <activity android:name=".player.PlayerAct" />
         <activity android:name=".aimation.CanvasAct" />
         <activity android:name=".test.act.TestAct" />
-
+        <activity android:name=".test.room.TestRoomCoroutinesAct" />
 
     </application>
-
 </manifest>

@@ -13,6 +13,7 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -36,7 +37,6 @@ android {
 }
 
 
-
 dependencies {
     implementation project(path: ':commons')
     implementation project(path: ':style')
@@ -56,7 +56,7 @@ dependencies {
     implementation 'android.arch.navigation:navigation-fragment:1.0.0'
     implementation 'android.arch.navigation:navigation-ui:1.0.0'
     implementation 'com.google.android.material:material:1.2.0-alpha06'
-    
+
     def nav_version = "2.3.0-beta01"
 
     // Java language implementation
@@ -78,6 +78,9 @@ dependencies {
 
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
+
+
+    kapt "androidx.room:room-compiler:$room_version"
     // For Kotlin use kapt instead of annotationProcessor
 
     // optional - Kotlin Extensions and Coroutines support for Room
@@ -93,12 +96,10 @@ dependencies {
     testImplementation "androidx.room:room-testing:$room_version"
 
 
-
     implementation 'com.google.code.gson:gson:2.8.6'
 
 
     implementation 'androidx.fragment:fragment-ktx:1.2.0-alpha01'
-
 
 
     def lifecycle_version = "2.2.0"
@@ -132,10 +133,6 @@ dependencies {
     testImplementation "androidx.arch.core:core-testing:$arch_version"
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 
-
-    implementation 'android.arch.persistence.room:runtime:1.0.0'
-    annotationProcessor  'android.arch.persistence.room:compiler:1.0.0'
-    kapt 'android.arch.persistence.room:compiler:1.0.0'
 
 
 }

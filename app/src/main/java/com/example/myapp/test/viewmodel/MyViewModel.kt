@@ -1,6 +1,6 @@
 package com.example.myapp.test.viewmodel
 
-import androidx.lifecycle.MutableLiveData
+/*import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MyViewModel : ViewModel() {
@@ -19,4 +19,4 @@ class MyViewModel : ViewModel() {
     }
 }
 
-class User()
+class User()*/
