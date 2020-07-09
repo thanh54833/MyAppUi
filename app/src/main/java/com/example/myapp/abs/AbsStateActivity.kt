@@ -1,6 +1,7 @@
 package com.example.myapp.abs
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -9,7 +10,6 @@ import android.view.View
 import androidx.annotation.IdRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.ViewModelProvider
 import com.example.commons.sharepreference.intPreference
 import com.example.commons.snackbar.SnackBarView
 import com.example.myapp.R
@@ -17,8 +17,6 @@ import com.example.myapp.config.AppConfig
 import com.example.myapp.contact.config.AppMode
 import com.example.myapp.contact.type.PageType
 import com.example.myapp.contact.type.ThemesType
-import com.example.myapp.test.act.TestAct
-import com.example.myapp.test.room.DatabaseHelperImpl
 import com.google.android.material.snackbar.Snackbar
 import kotlin.properties.Delegates
 
@@ -197,5 +195,12 @@ abstract class AbsStateActivity : AppCompatActivity() {
         const val THEMES_TYPE_FAVORITE = "THEMES_TYPE_FAVORITE"
         const val THEMES_TYPE_SETTING = "THEMES_TYPE_SETTING"
         const val PAGE_CURRENT = "PAGE_CURRENT"
+
+        @JvmStatic
+        fun getIntent(context: Context): Intent {
+            return Intent(context, this::class.java)
+        }
     }
+
+
 }

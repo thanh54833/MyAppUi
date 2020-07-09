@@ -14,6 +14,7 @@ import kotlinx.coroutines.launch
 
 
 class TestRoomCoroutinesAct : AbsStateActivity() {
+
     lateinit var binding: TestRoomCoroutiesBinding
     lateinit var viewModel: RoomDBViewModel
 
@@ -34,8 +35,6 @@ class TestRoomCoroutinesAct : AbsStateActivity() {
             this,
             ViewModelFactory(DatabaseHelperImpl(DatabaseBuilder.getInstance(applicationContext)))
         ).get(RoomDBViewModel::class.java)
-
-
     }
 
     override fun initializedView() {
@@ -62,6 +61,8 @@ class TestRoomCoroutinesAct : AbsStateActivity() {
             "Result : ${Gson().toJson(_result)} ".Log()
         })
     }
+
+
 }
 
 
